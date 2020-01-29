@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PersonalRecords</string>
+    <string name="menu_espaces">Espaces</string>
+    <string name="tv_title">PersonalRecords</string>
+    <string name="edt_login">Identifiants</string>
+    <string name="edt_password">Mot de passe</string>
+    <string name="btn_login">S\'authentifier</string>
+    <string name="btn_addSpaces">+</string>
+</resources>
