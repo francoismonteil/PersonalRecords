@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalandarActivity">
+    tools:context=".IndicatorsActivity">
 
     <Button
-        android:id="@+id/btn_addSpace"
+        android:id="@+id/btn_addIndicator"
         android:layout_width="95dp"
         android:layout_height="91dp"
         android:text="@string/btn_addSpaces"
@@ -18,4 +18,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975" />
+
+    <TextView
+        android:id="@+id/tv_indicators"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mes indicateurs"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.058" />
 </androidx.constraintlayout.widget.ConstraintLayout>

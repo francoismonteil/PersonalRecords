@@ -6,45 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edt_password"
-        android:layout_width="382dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:hint="@string/edt_password"
-        android:inputType="textPassword"
+    <TextView
+        android:id="@+id/textView_accueil_idLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.364" />
-
-    <EditText
-        android:id="@+id/edt_login"
-        android:layout_width="382dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:hint="@string/edt_login"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edt_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="153dp"
-        android:layout_height="80dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/btn_login"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

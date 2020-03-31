@@ -6,4 +6,8 @@
     <string name="edt_password">Mot de passe</string>
     <string name="btn_login">S\'authentifier</string>
     <string name="btn_addSpaces">+</string>
+    <string name="edt_spaceName">Nom de l\'espace</string>
+    <string name="btn_indicatorAdd">Ajouter un indicateur</string>
+    <string name="indicateurs">Indicateurs</string>
+    <string name="deconnecter">Deconnecter</string>
 </resources>
