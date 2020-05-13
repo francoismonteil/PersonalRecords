@@ -3,26 +3,22 @@ package com.example.personalrecords;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import modele.Space;
+import modele.EspaceBdd;
+import modele.SaveSharedPreference;
 
 public class SpacesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnSpaceAdd;
     private ListView listViewSpaces;
-
-    private Space[] spaces;
-
-    private String[] spaceList = new String[]{
-            "Cigarette", "Sport", "Nourriture"
-    };
+    private EspaceBdd espaceBdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +30,11 @@ public class SpacesActivity extends AppCompatActivity implements View.OnClickLis
 
         listViewSpaces = findViewById(R.id.listView_spaces);
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(SpacesActivity.this,
-                android.R.layout.simple_list_item_1, spaceList);
-        listViewSpaces.setAdapter(adapter);
+        espaceBdd = new EspaceBdd(this,"PersonalRecords.db", null, 1);
+        Cursor cursor = espaceBdd.getUserSpacesCursor(SaveSharedPreference.getLoggedStatus(getApplicationContext()));
 
+        SpaceCursorAdapter listAdapter = new SpaceCursorAdapter(this, cursor);
+        listViewSpaces.setAdapter(listAdapter);
     }
 
     @Override
@@ -55,11 +52,24 @@ public class SpacesActivity extends AppCompatActivity implements View.OnClickLis
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
+            case R.id.action_informations:
+                Intent toInformation = new Intent(this, InformationsActivity.class);
+                startActivity(toInformation);
+                break;
             case R.id.action_indicateurs:
                 Intent toIndicatorApplication = new Intent(this, IndicatorsActivity.class);
                 startActivity(toIndicatorApplication);
-            break;
+                break;
+            case R.id.action_accueil:
+                Intent toAccueil = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(toAccueil);
+            case R.id.action_deconnecter:
+                SaveSharedPreference.disconnect(getApplicationContext());
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                break;
         }
+        this.finish();
         return super.onOptionsItemSelected(item);
     }
 
@@ -69,6 +79,7 @@ public class SpacesActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_addSpace:
                 Intent toSpaceAddApplication = new Intent(this, SpaceAddActivity.class);
                 startActivity(toSpaceAddApplication);
+                this.finish();
                 break;
         }
     }

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PersonalRecords</string>
-    <string name="menu_espaces">Espaces</string>
     <string name="tv_title">PersonalRecords</string>
     <string name="edt_login">Identifiants</string>
     <string name="edt_password">Mot de passe</string>
@@ -8,6 +7,17 @@
     <string name="btn_addSpaces">+</string>
     <string name="edt_spaceName">Nom de l\'espace</string>
     <string name="btn_indicatorAdd">Ajouter un indicateur</string>
-    <string name="indicateurs">Indicateurs</string>
-    <string name="deconnecter">Deconnecter</string>
+    <string name="menu_espaces">Mes espaces</string>
+    <string name="menu_informations">Mes informations</string>
+    <string name="menu_indicateurs">Mes indicateurs</string>
+    <string name="menu_accueil">Accueil</string>
+    <string name="menu_deconnecter">Deconnecter</string>
+    <string-array name="indicatorAdd_list">
+        <item>Oui ou Non</item>
+        <item>Texte</item>
+        <item>Nombre à virgule</item>
+        <item>Nombre entier</item>
+        <item>Image</item>
+        <item>Case à cocher</item>
+    </string-array>
 </resources>

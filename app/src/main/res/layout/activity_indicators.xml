@@ -6,8 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".IndicatorsActivity">
 
+    <TextView
+        android:id="@+id/textView_indicateurs_titre"
+        android:layout_width="191dp"
+        android:layout_height="35dp"
+        android:text="Mes indicateurs"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
     <Button
-        android:id="@+id/btn_addIndicator"
+        android:id="@+id/button_indicateur_ajout"
         android:layout_width="95dp"
         android:layout_height="91dp"
         android:text="@string/btn_addSpaces"
@@ -19,15 +34,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975" />
 
-    <TextView
-        android:id="@+id/tv_indicators"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mes indicateurs"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ListView
+        android:id="@+id/listView_indicator_list"
+        android:layout_width="394dp"
+        android:layout_height="482dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_indicateur_ajout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_indicateurs_titre" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,12 +7,55 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView_accueil_idLog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:id="@+id/textView_accueil_titre"
+        android:layout_width="191dp"
+        android:layout_height="35dp"
+        android:text="Accueil"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <EditText
+        android:id="@+id/editText_date_ajd"
+        android:layout_width="297dp"
+        android:layout_height="43dp"
+        android:editable="false"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textUri|text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_accueil_titre"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <Button
+        android:id="@+id/button_accueil_calandar"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:foreground="@android:drawable/ic_menu_today"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editText_date_ajd"
+        app:layout_constraintTop_toBottomOf="@+id/textView_accueil_titre"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <ListView
+        android:id="@+id/listView_main_spaces"
+        android:layout_width="336dp"
+        android:layout_height="533dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_date_ajd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

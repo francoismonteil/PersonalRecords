@@ -4,11 +4,23 @@
     android:layout_height="match_parent"
     >
     <item
+        android:id="@+id/action_informations"
+        app:showAsAction="never"
+        android:title="@string/menu_informations"/>
+    <item
+        android:id="@+id/action_espaces"
+        app:showAsAction="never"
+        android:title="@string/menu_espaces"/>
+    <item
         android:id="@+id/action_indicateurs"
         app:showAsAction="never"
-        android:title="@string/indicateurs"/>
+        android:title="@string/menu_indicateurs"/>
+    <item
+        android:id="@+id/action_accueil"
+        app:showAsAction="never"
+        android:title="@string/menu_accueil"/>
     <item
         android:id="@+id/action_deconnecter"
         app:showAsAction="never"
-        android:title="@string/deconnecter"/>
+        android:title="@string/menu_deconnecter"/>
 </menu>

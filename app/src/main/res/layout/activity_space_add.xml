@@ -7,37 +7,63 @@
     tools:context=".SpaceAddActivity">
 
     <EditText
-        android:id="@+id/edt_spaceName"
-        android:layout_width="382dp"
-        android:layout_height="57dp"
+        android:id="@+id/editText_espace_titre"
+        android:layout_width="351dp"
+        android:layout_height="53dp"
         android:ems="10"
         android:hint="@string/edt_spaceName"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
-        android:id="@+id/btn_indicatorAdd"
+        android:id="@+id/button_espace_add_indicateur"
         android:layout_width="231dp"
         android:layout_height="65dp"
         android:layout_marginBottom="44dp"
         android:text="@string/btn_indicatorAdd"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/button_espace_ajouter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_espace_ajouter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:background="@color/colorPrimary"
-        android:text="v"
+        android:text="Ajouter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/listview_espace_indicateurs"
+        android:layout_width="351dp"
+        android:layout_height="245dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_espace_add_indicateur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_space_add_description"
+        app:layout_constraintVertical_bias="0.369" />
+
+    <EditText
+        android:id="@+id/editText_space_add_description"
+        android:layout_width="341dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_espace_titre"
+        app:layout_constraintVertical_bias="0.027" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package modele;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -16,6 +15,39 @@ import static modele.hashCalculate.toHexString;
 public class UtilisateurBdd extends SQliteConnexion {
     public UtilisateurBdd(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+    }
+
+    public Utilisateur getUser(int idUtilisateur){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {
+                "identifiant",
+                "prenom",
+                "nom"
+        };
+
+       String selection = "idUtilisateurs=?";
+       String[] selectionArgs = { String.valueOf(idUtilisateur) };
+
+        Cursor cursor = db.query(
+                "Utilisateurs",   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+
+        cursor.moveToNext();
+        String identifiant = cursor.getString(cursor.getColumnIndexOrThrow("identifiant"));
+        String prenom = cursor.getString(cursor.getColumnIndexOrThrow("prenom"));
+        String nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
+
+        Utilisateur user = new Utilisateur(idUtilisateur, identifiant, prenom, nom);
+
+        cursor.close();
+
+        return user;
     }
 
     public ArrayList<Utilisateur> allUsers(){
@@ -73,6 +105,36 @@ public class UtilisateurBdd extends SQliteConnexion {
         idUtilisateur = (int) db.insert("Utilisateurs", null, values);
 
         return idUtilisateur;
+    }
+
+    public boolean modifyUser(int idUtilisateur, String prenom, String nom, String motdepasse) throws NoSuchAlgorithmException {
+        boolean retour = false;
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("prenom", prenom);
+            values.put("nom", nom);
+            motdepasse = toHexString(getSHA(motdepasse));
+            values.put("motdepasse", motdepasse);
+
+        String[] args = { String.valueOf(idUtilisateur) };
+        if(db.update("Utilisateurs", values, "idUtilisateurs", args) > 0)
+            retour = true;
+
+        return retour;
+    }
+
+    public boolean modifyUser(int idUtilisateur, String prenom, String nom){
+        boolean retour = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("prenom", prenom);
+        values.put("nom", nom);
+
+        String[] args = { String.valueOf(idUtilisateur) };
+        if(db.update("Utilisateurs", values, "idUtilisateurs="+idUtilisateur, null) > 0)
+            retour = true;
+
+        return retour;
     }
 
     public int checkUser(String identifiant, String motdepasse) throws NoSuchAlgorithmException {

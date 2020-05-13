@@ -38,9 +38,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Button btnRegister = findViewById(R.id.btn_register);
         btnRegister.setOnClickListener(this);
-
-        Button btnSupprBdd = findViewById(R.id.button_login_supprBdd);
-        btnSupprBdd.setOnClickListener(this);
     }
 
     @Override
@@ -64,9 +61,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent toRegister = new Intent(this, RegisterActivity.class);
                 startActivity(toRegister);
                 break;
-            case R.id.button_login_supprBdd:
-                SQliteConnexion bdd = new SQliteConnexion(this, "PersonalRecords.db", null, 1);
-            break;
         }
     }
 
